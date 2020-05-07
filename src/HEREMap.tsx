@@ -117,24 +117,23 @@ export const HEREMap: React.FC<HEREMapProps> = ({
         window.addEventListener('resize', debouncedResizeMap);
       }
 
-      if (map) {
-        map.addEventListener('tap', (event: any) => {
-          const coords = map.screenToGeo(
-            event.currentPointer.viewportX,
-            event.currentPointer.viewportY,
-          );
-          console.log(coords);
-        });
-      }
+      // if (map) {
+      //   map.addEventListener('tap', (event: any) => {
+      //     const coords = map.screenToGeo(
+      //       event.currentPointer.viewportX,
+      //       event.currentPointer.viewportY,
+      //     );
+      //   });
+      // }
     }
 
     return () => {
       if (typeof window !== 'undefined') {
         window.removeEventListener('resize', debouncedResizeMap);
       }
-      if (map) {
-        map.removeEventListener('tap', debouncedResizeMap);
-      }
+      // if (map) {
+      //   map.removeEventListener('tap', debouncedResizeMap);
+      // }
     };
   }, [
     center,
