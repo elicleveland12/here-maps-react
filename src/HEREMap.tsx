@@ -151,7 +151,6 @@ export const HEREMap: React.FC<HEREMapProps> = ({
         const e = rest[event as keyof Events];
         if (typeof e === 'function') {
           map.addEventListener(hereEvent, e);
-          console.log(hereEvent, e);
         }
       });
     }
@@ -161,6 +160,7 @@ export const HEREMap: React.FC<HEREMapProps> = ({
           const e = rest[event as keyof Events];
           if (typeof e === 'function') {
             map.removeEventListener(hereEvent, e);
+            console.log(hereEvent, e);
           }
         });
       }
