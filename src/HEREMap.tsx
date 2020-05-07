@@ -43,9 +43,6 @@ export const HEREMap: React.FC<HEREMapProps> = ({
     H.mapevents.Behavior | undefined
   >(undefined);
   const [ui, setUi] = React.useState<H.ui.UI | undefined>(undefined);
-  const [coords, setCoords] = React.useState<H.geo.Point | undefined>(
-    undefined,
-  );
   const debouncedResizeMap = debounce(resizeMap, 200);
   const [,] = useLink(
     'https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1526040296',
@@ -170,20 +167,6 @@ export const HEREMap: React.FC<HEREMapProps> = ({
       map.setZoom(zoom, animateZoom === true);
     }
   }, [animateZoom, map, zoom]);
-
-  React.useEffect(() => {
-    if (map) {
-      map.addEventListener('tap', (event: any) => {
-        setCoords(
-          map.screenToGeo(
-            event.currentPointer.viewportX,
-            event.currentPointer.viewportY,
-          ),
-        );
-        return coords;
-      });
-    }
-  }, [map, coords, setCoords]);
 
   function resizeMap() {
     if (map) {
