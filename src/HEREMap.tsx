@@ -156,18 +156,20 @@ export const HEREMap: React.FC<HEREMapProps> = ({
     };
   }, [map, rest]);
 
-  // React.useEffect(() => {
-  //   if (map) {
-  //     map.addEventListener('tap', (evt: any) => {
-  //       var coord = map.screenToGeo(
-  //         evt.currentPointer.viewportX,
-  //         evt.currentPointer.viewportY,
-  //       );
-  //       console.log(coord);
-  //       return coord;
-  //     });
-  //   }
-  // }), [map];
+  React.useEffect(() => {
+    var coord;
+    if (map) {
+      map.addEventListener('tap', (evt: any) => {
+        coord = map.screenToGeo(
+          evt.currentPointer.viewportX,
+          evt.currentPointer.viewportY,
+        );
+        console.log(coord);
+      });
+    }
+    return coord;
+  }),
+    [map];
 
   React.useEffect(() => {
     if (map && center) {
