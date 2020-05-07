@@ -1,11 +1,18 @@
-export function screenToGeo(map: H.Map) {
-  if (map) {
-    map.addEventListener('tap', (event: any) => {
-      const coords = map.screenToGeo(
-        event.currentPointer.viewportX,
-        event.currentPointer.viewportY,
-      );
-      console.log(coords);
-    });
-  }
+import React from 'react';
+import MapContext from '../utils/map-context';
+
+export function screenToGeo() {
+  const mapContext = React.useContext(MapContext);
+  React.useEffect(() => {
+    const { map } = mapContext;
+    if (map) {
+      map.addEventListener('tap', (event: any) => {
+        const coords = map.screenToGeo(
+          event.currentPointer.viewportX,
+          event.currentPointer.viewportY,
+        );
+        console.log(coords);
+      });
+    }
+  });
 }
