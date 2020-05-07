@@ -13,7 +13,7 @@ export function setMarkerDragEvent(map: H.Map, behavior: H.mapevents.Behavior) {
         e.target instanceof H.map.DomMarker
       ) {
         behavior.disable();
-        console.log('dragstart: ', e.target);
+        return e.target;
       }
     },
     false,
@@ -27,7 +27,6 @@ export function setMarkerDragEvent(map: H.Map, behavior: H.mapevents.Behavior) {
         e.target instanceof H.map.DomMarker
       ) {
         behavior.enable();
-        console.log('dragend: ', e.target);
       }
     },
     false,
