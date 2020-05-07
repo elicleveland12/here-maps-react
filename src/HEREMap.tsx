@@ -118,9 +118,19 @@ export const HEREMap: React.FC<HEREMapProps> = ({
       }
 
       if (map) {
-        map.addEventListener('tap', (event: any) => {
-          screenToGeo(map);
-        });
+        map.addEventListener(
+          'tap',
+          (event: any) => {
+            if (map) {
+              const coords = map.screenToGeo(
+                event.currentPointer.viewportX,
+                event.currentPointer.viewportY,
+              );
+              return coords;
+            }
+          },
+          false,
+        );
       }
     }
 
@@ -196,20 +206,4 @@ export const HEREMap: React.FC<HEREMapProps> = ({
   );
 };
 
-export function screenToGeo(map: H.Map) {
-  map.addEventListener(
-    'tap',
-    (event: any) => {
-      if (map) {
-        const coords = map.screenToGeo(
-          event.currentPointer.viewportX,
-          event.currentPointer.viewportY,
-        );
-        return coords;
-      }
-    },
-    false,
-  );
-}
-
-// export { HEREMap, screenToGeo };
+export default HEREMap;
