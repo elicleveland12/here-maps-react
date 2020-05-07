@@ -119,7 +119,7 @@ export const HEREMap: React.FC<HEREMapProps> = ({
 
       if (map) {
         map.addEventListener('tap', (event: any) => {
-          return map;
+          screenToGeo(map);
         });
       }
     }
