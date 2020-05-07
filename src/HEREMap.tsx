@@ -116,16 +116,6 @@ export const HEREMap: React.FC<HEREMapProps> = ({
       if (typeof window !== 'undefined') {
         window.addEventListener('resize', debouncedResizeMap);
       }
-
-      // if (map) {
-      //   map.addEventListener('tap', (evt: any) => {
-      //     var coord = map.screenToGeo(
-      //       evt.currentPointer.viewportX,
-      //       evt.currentPointer.viewportY,
-      //     );
-      //     return coord;
-      //   });
-      // }
     }
 
     return () => {
@@ -160,12 +150,25 @@ export const HEREMap: React.FC<HEREMapProps> = ({
           const e = rest[event as keyof Events];
           if (typeof e === 'function') {
             map.removeEventListener(hereEvent, e);
-            console.log(hereEvent, e);
           }
         });
       }
     };
   }, [map, rest]);
+
+  React.useEffect(() => {
+    if (map) {
+      map.addEventListener('tap', (evt: any) => {
+        var coord = map.screenToGeo(
+          evt.currentPointer.viewportX,
+          evt.currentPointer.viewportY,
+        );
+        console.log(coord);
+        return coord;
+      });
+    }
+  }),
+    [map];
 
   React.useEffect(() => {
     if (map && center) {
