@@ -118,9 +118,9 @@ export const HEREMap: React.FC<HEREMapProps> = ({
       }
 
       if (map) {
-        console.log('please...');
-
         map.addEventListener('tap', (evt: any) => {
+          console.log('please.........');
+
           var coord = map.screenToGeo(
             evt.currentPointer.viewportX,
             evt.currentPointer.viewportY,
