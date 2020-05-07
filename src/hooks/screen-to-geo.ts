@@ -1,9 +1,8 @@
 import React from 'react';
 import MapContext from '../utils/map-context';
 
-const mapContext = React.useContext(MapContext);
-
 export function screenToGeo(event: any) {
+  const mapContext = React.useContext(MapContext);
   const { map } = mapContext;
 
   React.useEffect(() => {
