@@ -13,6 +13,7 @@ export function setMarkerDragEvent(map: H.Map, behavior: H.mapevents.Behavior) {
         e.target instanceof H.map.DomMarker
       ) {
         behavior.disable();
+        console.log('dragstart: ', e.target);
       }
     },
     false,
@@ -26,6 +27,7 @@ export function setMarkerDragEvent(map: H.Map, behavior: H.mapevents.Behavior) {
         e.target instanceof H.map.DomMarker
       ) {
         behavior.enable();
+        console.log('dragend: ', e.target);
       }
     },
     false,
@@ -40,7 +42,6 @@ export function setMarkerDragEvent(map: H.Map, behavior: H.mapevents.Behavior) {
         target instanceof H.map.Marker ||
         e.target instanceof H.map.DomMarker
       ) {
-        console.log(map.screenToGeo(pointer.viewportX, pointer.viewportY));
         target.setPosition(
           map.screenToGeo(pointer.viewportX, pointer.viewportY),
         );
