@@ -5,13 +5,11 @@ export function screenToGeo(event: any) {
   const mapContext = React.useContext(MapContext);
   const { map } = mapContext;
 
-  React.useEffect(() => {
-    if (map) {
-      const coords = map.screenToGeo(
-        event.currentPointer.viewportX,
-        event.currentPointer.viewportY,
-      );
-      console.log(coords);
-    }
-  });
+  if (map) {
+    const coords = map.screenToGeo(
+      event.currentPointer.viewportX,
+      event.currentPointer.viewportY,
+    );
+    console.log(coords);
+  }
 }
