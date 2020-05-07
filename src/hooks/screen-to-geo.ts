@@ -14,8 +14,9 @@ export function screenToGeo() {
             event.currentPointer.viewportY,
           ),
         );
-        return coords;
       });
     }
   }, [map, coords, setCoords]);
+
+  return coords;
 }
