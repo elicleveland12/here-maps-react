@@ -1,10 +1,12 @@
 import React from 'react';
 import MapContext from '../utils/map-context';
 
-export function screenToGeo() {
+function screenToGeo() {
   const mapContext = React.useContext(MapContext);
+
   React.useEffect(() => {
     const { map } = mapContext;
+
     if (map) {
       map.addEventListener('tap', (event: any) => {
         const coords = map.screenToGeo(
@@ -16,3 +18,5 @@ export function screenToGeo() {
     }
   });
 }
+
+export { screenToGeo };
