@@ -140,7 +140,6 @@ export const HEREMap: React.FC<HEREMapProps> = ({
       Object.entries(events).forEach(([event, hereEvent]) => {
         const e = rest[event as keyof Events];
         if (typeof e === 'function') {
-          console.log('this is fucking stupid... ', hereEvent, e);
           map.addEventListener(hereEvent, e);
         }
       });
