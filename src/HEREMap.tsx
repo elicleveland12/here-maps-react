@@ -180,7 +180,6 @@ export const HEREMap: React.FC<HEREMapProps> = ({
             event.currentPointer.viewportY,
           ),
         );
-        console.log(coords);
         return coords;
       });
     }
