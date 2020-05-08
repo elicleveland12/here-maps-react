@@ -117,6 +117,12 @@ export const HEREMap: React.FC<HEREMapProps> = ({
       if (typeof window !== 'undefined') {
         window.addEventListener('resize', debouncedResizeMap);
       }
+
+      if (map) {
+        map.addEventListener('tap', () => {
+          console.log(map);
+        });
+      }
     }
 
     return () => {
@@ -175,19 +181,12 @@ export const HEREMap: React.FC<HEREMapProps> = ({
     }
   }
 
-  function getMapObj() {
-    if (map) {
-      return map;
-    }
-  }
-
   return (
     <MapContext.Provider value={{ map, behavior, ui }}>
       <div
         id={mapContainerId}
         data-testid="map-container"
         style={{ height: '100%' }}
-        onClick={getMapObj}
       >
         {map ? children : null}
       </div>
