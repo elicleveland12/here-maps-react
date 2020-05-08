@@ -1,4 +1,4 @@
-import HEREMap from './HEREMap';
+import { HEREMap } from './HEREMap';
 import Circle from './Circle';
 import Marker from './Marker';
 import RouteLine from './RouteLine';

@@ -180,11 +180,10 @@ export const HEREMap: React.FC<HEREMapProps> = ({
         id={mapContainerId}
         data-testid="map-container"
         style={{ height: '100%' }}
+        onClick={() => console.log('frick')}
       >
         {map ? children : null}
       </div>
     </MapContext.Provider>
   );
 };
-
-export default HEREMap;

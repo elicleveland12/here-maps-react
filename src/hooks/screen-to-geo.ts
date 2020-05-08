@@ -1,7 +1,6 @@
-import HEREMap from '../HEREMap';
-
 function screenToGeo() {
-  console.log(HEREMap);
+  console.log('whatever');
+
   // if (map) {
   //   map.addEventListener(
   //     'tap',
