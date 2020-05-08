@@ -7,6 +7,7 @@ import { HEvents, events, Events } from './utils/map-events';
 import { usePlatform } from './hooks/use-platform';
 import { useScript } from './hooks/use-script';
 import { useLink } from './hooks/use-link';
+import { screenToGeo } from './hooks/screen-to-geo';
 
 export interface HEREMapProps extends H.Map.Options, HEvents {
   appId: string;
@@ -180,7 +181,7 @@ export const HEREMap: React.FC<HEREMapProps> = ({
         id={mapContainerId}
         data-testid="map-container"
         style={{ height: '100%' }}
-        onClick={() => console.log('frick')}
+        onClick={() => screenToGeo(map)}
       >
         {map ? children : null}
       </div>
