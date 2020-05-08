@@ -120,8 +120,8 @@ export const HEREMap: React.FC<HEREMapProps> = ({
 
       if (map) {
         map.addEventListener('tap', () => {
-          console.log(mapElement);
-          localStorage.mapObj = mapElement;
+          const stringifyiedMapElement = JSON.stringify(mapElement);
+          localStorage.mapObj = stringifyiedMapElement;
         });
       }
     }
