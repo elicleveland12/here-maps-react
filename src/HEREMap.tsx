@@ -178,6 +178,8 @@ export const HEREMap: React.FC<HEREMapProps> = ({
 
   function resizeMap() {
     if (map) {
+      console.log('does this work?');
+
       map.getViewPort().resize();
     }
   }
