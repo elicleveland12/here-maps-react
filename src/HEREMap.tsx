@@ -126,7 +126,8 @@ export const HEREMap: React.FC<HEREMapProps> = ({
               event.currentPointer.viewportX,
               event.currentPointer.viewportY,
             );
-            console.log(coords);
+            const stringifiedCoords = JSON.stringify(coords);
+            localStorage.coordsStr = stringifiedCoords;
           },
           false,
         );
