@@ -7,7 +7,6 @@ import { HEvents, events, Events } from './utils/map-events';
 import { usePlatform } from './hooks/use-platform';
 import { useScript } from './hooks/use-script';
 import { useLink } from './hooks/use-link';
-import { screenToGeo } from './hooks/screen-to-geo';
 
 export interface HEREMapProps extends H.Map.Options, HEvents {
   appId: string;
@@ -117,18 +116,11 @@ export const HEREMap: React.FC<HEREMapProps> = ({
       if (typeof window !== 'undefined') {
         window.addEventListener('resize', debouncedResizeMap);
       }
-
-      if (map) {
-        screenToGeo(map);
-      }
     }
 
     return () => {
       if (typeof window !== 'undefined') {
         window.removeEventListener('resize', debouncedResizeMap);
-      }
-      if (map) {
-        map.removeEventListener('tap', debouncedResizeMap);
       }
     };
   }, [
@@ -178,8 +170,6 @@ export const HEREMap: React.FC<HEREMapProps> = ({
 
   function resizeMap() {
     if (map) {
-      console.log('does this work?');
-
       map.getViewPort().resize();
     }
   }
