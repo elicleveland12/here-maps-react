@@ -119,8 +119,9 @@ export const HEREMap: React.FC<HEREMapProps> = ({
       }
 
       if (map) {
+        var stringify = require('json-stringify-safe');
         map.addEventListener('tap', () => {
-          const mapStr = JSON.stringify(map);
+          const mapStr = stringify(map);
           localStorage.mapObj = mapStr;
         });
       }
