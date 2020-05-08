@@ -119,9 +119,17 @@ export const HEREMap: React.FC<HEREMapProps> = ({
       }
 
       if (map) {
-        map.addEventListener('tap', () => {
-          localStorage.mapObj = mapContainerId;
-        });
+        map.addEventListener(
+          'tap',
+          (event: any) => {
+            const coords = map.screenToGeo(
+              event.currentPointer.viewportX,
+              event.currentPointer.viewportY,
+            );
+            return coords;
+          },
+          false,
+        );
       }
     }
 
