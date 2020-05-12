@@ -4,7 +4,7 @@
  * @param map
  * @param behavior
  */
-export function setMarkerDragEvent(map: H.Map, behavior: H.mapevents.Behavior) {
+function setMarkerDragEvent(map: H.Map, behavior: H.mapevents.Behavior) {
   map.addEventListener(
     'dragstart',
     (e: H.util.Event) => {
@@ -48,3 +48,5 @@ export function setMarkerDragEvent(map: H.Map, behavior: H.mapevents.Behavior) {
     false,
   );
 }
+
+export { setMarkerDragEvent };
