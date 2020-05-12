@@ -40,9 +40,10 @@ function setMarkerDragEvent(map: H.Map, behavior: H.mapevents.Behavior) {
         target instanceof H.map.Marker ||
         e.target instanceof H.map.DomMarker
       ) {
-        target.setPosition(
-          map.screenToGeo(pointer.viewportX, pointer.viewportY),
-        );
+        var coords = map.screenToGeo(pointer.viewportX, pointer.viewportY);
+        target.setPosition(coords);
+        const stringifiedCoords = JSON.stringify(coords);
+        localStorage.draggedMarker = stringifiedCoords;
       }
     },
     false,
