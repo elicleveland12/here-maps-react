@@ -46,7 +46,7 @@ export const Circle: React.FC<CircleProps> = ({
     }
     return () => {
       if (map && circle) {
-        // map.removeObject(circle);
+        setCircle(undefined);
       }
     };
   }, [circle, fillColor, lat, lineWidth, lng, mapContext, radius, strokeColor]);
