@@ -42,7 +42,7 @@ export const RouteLine: React.FC<RouteLineProps> = ({
     }
     return () => {
       if (map && routeLine) {
-        routeLine.setVisibility(false);
+        // routeLine.setVisibility(false);
       }
     };
   }, [lineWidth, mapContext, routeLine, shape, strokeColor]);
