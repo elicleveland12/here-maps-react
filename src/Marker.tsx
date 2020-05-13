@@ -32,6 +32,8 @@ export const Marker: React.FC<MarkerProps> = ({
     const { map, behavior } = mapContext;
 
     if (map && !marker) {
+      console.log('marker before setting state: ', marker);
+
       let newMarker: H.map.DomMarker | H.map.Marker;
       if (React.Children.count(children) > 0) {
         const html = ReactDOMServer.renderToStaticMarkup(
@@ -58,7 +60,6 @@ export const Marker: React.FC<MarkerProps> = ({
     return () => {
       if (map && marker) {
         setMarker(undefined);
-        console.log(marker);
       }
     };
   }, [bitmap, children, draggable, lat, lng, mapContext, marker]);
