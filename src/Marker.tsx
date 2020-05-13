@@ -30,11 +30,11 @@ export const Marker: React.FC<MarkerProps> = ({
 
   React.useEffect(() => {
     const { map, behavior } = mapContext;
-
+    let markerGroup: H.map.Group;
+    markerGroup = new H.map.Group();
     if (map && !marker) {
-      console.log('marker before setting state: ', marker);
-
       let newMarker: H.map.DomMarker | H.map.Marker;
+
       if (React.Children.count(children) > 0) {
         const html = ReactDOMServer.renderToStaticMarkup(
           <div className="dom-marker">{children}</div>,
@@ -54,12 +54,12 @@ export const Marker: React.FC<MarkerProps> = ({
         setMarkerDragEvent(map, behavior);
       }
 
-      map.addObject(newMarker);
+      markerGroup.addObject(newMarker);
       setMarker(newMarker);
     }
     return () => {
       if (map && marker) {
-        setMarker(undefined);
+        markerGroup.removeObject(marker);
       }
     };
   }, [bitmap, children, draggable, lat, lng, mapContext, marker]);
