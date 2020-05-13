@@ -30,8 +30,7 @@ export const Marker: React.FC<MarkerProps> = ({
 
   React.useEffect(() => {
     const { map, behavior } = mapContext;
-    let markerGroup: H.map.Group;
-    markerGroup = new H.map.Group();
+
     if (map && !marker) {
       let newMarker: H.map.DomMarker | H.map.Marker;
 
@@ -54,12 +53,12 @@ export const Marker: React.FC<MarkerProps> = ({
         setMarkerDragEvent(map, behavior);
       }
 
-      markerGroup.addObject(newMarker);
+      map.addObject(newMarker);
       setMarker(newMarker);
     }
     return () => {
       if (map && marker) {
-        markerGroup.removeObject(marker && marker);
+        // setMarker(undefined);
       }
     };
   }, [bitmap, children, draggable, lat, lng, mapContext, marker]);
