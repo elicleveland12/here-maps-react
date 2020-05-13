@@ -57,7 +57,7 @@ export const Marker: React.FC<MarkerProps> = ({
     }
     return () => {
       if (map && marker) {
-        map.removeObject(marker);
+        // map.removeObject(marker);
       }
     };
   }, [bitmap, children, draggable, lat, lng, mapContext, marker]);
