@@ -59,6 +59,7 @@ export const Marker: React.FC<MarkerProps> = ({
     }
     return () => {
       if (map && marker) {
+        console.log(markerGroup);
         markerGroup.removeAll();
       }
     };
