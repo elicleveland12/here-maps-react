@@ -58,6 +58,7 @@ export const Marker: React.FC<MarkerProps> = ({
     return () => {
       if (map && marker) {
         setMarker(undefined);
+        console.log(marker);
       }
     };
   }, [bitmap, children, draggable, lat, lng, mapContext, marker]);
