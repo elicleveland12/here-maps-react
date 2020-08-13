@@ -175,12 +175,15 @@ export const HEREMap: React.FC<HEREMapProps> = ({
   React.useEffect(() => {
     if (map && center) {
       map.setCenter(center, animateCenter === true);
+      const stringifiedCenter = JSON.stringify(center);
+      localStorage.centerLoc = stringifiedCenter;
     }
   }, [animateCenter, center, map]);
 
   React.useEffect(() => {
     if (map && zoom) {
       map.setZoom(zoom, animateZoom === true);
+      localStorage.currentZoom = zoom;
     }
   }, [animateZoom, map, zoom]);
 
