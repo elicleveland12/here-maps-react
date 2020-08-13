@@ -134,10 +134,10 @@ export const HEREMap: React.FC<HEREMapProps> = ({
       }
     }
 
-    if (map && zoom) {
-      map.addEventListener('resize', (event: any) => {
+    if (map) {
+      map.addEventListener('mapviewchange', (event: any) => {
         console.log(map.getZoom());
-        localStorage.currentZoom = zoom;
+        localStorage.currentZoom = map.getZoom();
       });
     }
 
