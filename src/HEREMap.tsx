@@ -135,7 +135,15 @@ export const HEREMap: React.FC<HEREMapProps> = ({
     }
 
     if (map) {
-      map.addEventListener('mapviewchange', (event: any) => {
+      map.addEventListener('dbltap', (event: any) => {
+        console.log(map.getZoom());
+        localStorage.currentZoom = map.getZoom();
+      });
+      map.addEventListener('pointerup', (event: any) => {
+        console.log(map.getZoom());
+        localStorage.currentZoom = map.getZoom();
+      });
+      map.addEventListener('tap', (event: any) => {
         console.log(map.getZoom());
         localStorage.currentZoom = map.getZoom();
       });
