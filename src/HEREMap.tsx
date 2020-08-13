@@ -135,8 +135,9 @@ export const HEREMap: React.FC<HEREMapProps> = ({
           'mapviewchange',
           (event: any) => {
             const currentZoom = map.getZoom();
-            console.log(map);
+            const currentCenter = map.getCenter();
             localStorage.currentZoom = currentZoom;
+            localStorage.currentCenter = currentCenter;
           },
           false,
         );
