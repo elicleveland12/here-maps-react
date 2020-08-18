@@ -11,6 +11,7 @@ export interface HEvents {
   onTap?: HEvent;
   onDoubleTap?: HEvent;
   onLongPress?: HEvent;
+  onMapViewChangeEnd?: HEvent;
 }
 
 export type HEvent = (e: H.util.Event) => void;
@@ -28,6 +29,7 @@ export interface Events {
   onTap: string;
   onDoubleTap: string;
   onLongPress: string;
+  onMapViewChangeEnd: string;
 }
 
 export const events: Events = {
@@ -43,4 +45,5 @@ export const events: Events = {
   onTap: 'tap',
   onDoubleTap: 'dbltap',
   onLongPress: 'onlongpress',
+  onMapViewChangeEnd: 'mapviewchangeend',
 };
