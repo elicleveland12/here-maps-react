@@ -14,7 +14,12 @@ export interface HEvents {
   onMapViewChangeEnd?: HEvent;
 }
 
+export interface HUtils {
+  onMapViewChangeEnd?: HUtil;
+}
+
 export type HEvent = (e: H.util.Event) => void;
+export type HUtil = (e: H.util.EventTarget) => void;
 
 export interface Events {
   onPointerDown: string;

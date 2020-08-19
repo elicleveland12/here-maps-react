@@ -84,7 +84,7 @@ export const HEREMap: React.FC<HEREMapProps> = ({
       } else if (vectorType) {
         customLayer = defaultLayers.vector.normal[vectorType];
       } else {
-        customLayer = defaultLayers.vector.normal.map;
+        customLayer = defaultLayers.raster.normal.map;
       }
 
       if (mapElement && !map) {
