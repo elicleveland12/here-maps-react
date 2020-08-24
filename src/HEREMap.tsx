@@ -7,7 +7,6 @@ import { HEvents, events, Events } from './utils/map-events';
 import { usePlatform } from './hooks/use-platform';
 import { useScript } from './hooks/use-script';
 import { useLink } from './hooks/use-link';
-// import { screenToGeo } from './hooks/screen-to-geo';
 
 export interface HEREMapProps extends H.Map.Options, HEvents {
   apikey: string;
@@ -91,6 +90,7 @@ export const HEREMap: React.FC<HEREMapProps> = ({
         const newMap = new H.Map(mapElement, customLayer, {
           center,
           zoom,
+          engineType: H.Map.EngineType.P2D,
           pixelRatio: hidpi ? 2 : 1,
         });
         setMap(newMap);
@@ -108,23 +108,6 @@ export const HEREMap: React.FC<HEREMapProps> = ({
       if (typeof window !== 'undefined') {
         window.addEventListener('resize', debouncedResizeMap);
       }
-
-      // if (map) {
-      // map.addEventListener(
-      //   'mapviewchange',
-      //   (event: any) => {
-      //     const currentZoom = map.getZoom();
-      //     const currentCenter = map.getCenter();
-      //     const formattedCenter = {
-      //       lat: currentCenter.lat,
-      //       lng: currentCenter.lng,
-      //     };
-      //     localStorage.currentZoom = currentZoom;
-      //     localStorage.currentCenter = JSON.stringify(formattedCenter);
-      //   },
-      //   false,
-      // );
-      // }
     }
 
     return () => {

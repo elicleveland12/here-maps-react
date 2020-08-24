@@ -11,15 +11,9 @@ export interface HEvents {
   onTap?: HEvent;
   onDoubleTap?: HEvent;
   onLongPress?: HEvent;
-  onMapViewChangeEnd?: HEvent;
-}
-
-export interface HUtils {
-  onMapViewChangeEnd?: HUtil;
 }
 
 export type HEvent = (e: H.util.Event) => void;
-export type HUtil = (e: H.util.EventTarget) => void;
 
 export interface Events {
   onPointerDown: string;
@@ -34,7 +28,6 @@ export interface Events {
   onTap: string;
   onDoubleTap: string;
   onLongPress: string;
-  onMapViewChangeEnd: string;
 }
 
 export const events: Events = {
@@ -50,5 +43,4 @@ export const events: Events = {
   onTap: 'tap',
   onDoubleTap: 'dbltap',
   onLongPress: 'onlongpress',
-  onMapViewChangeEnd: 'mapviewchangeend',
 };
